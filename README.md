@@ -1,2 +1,2 @@
 # zpay
-zpay sdk
+zpay sdk!
