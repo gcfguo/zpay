@@ -40,3 +40,18 @@ func (c *OrdinaryOrderClient) PayOrder(
 	}
 	return &res, err
 }
+
+// Refund 订单退款
+func (c *OrdinaryOrderClient) Refund(
+	data *model.RefundOrdinaryOrderReq) (*model.RefundOrdinaryOrderRes, error) {
+	var res model.RefundOrdinaryOrderRes
+	_, err := c.doRequestWithToken(http.MethodPost,
+		"/v1/api/order/ordinary/refund",
+		data,
+		&res,
+	)
+	if res.Code != 0 {
+		return nil, errors.New(res.Msg)
+	}
+	return &res, err
+}

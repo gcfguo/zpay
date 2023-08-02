@@ -34,20 +34,20 @@ func WithAccessToken(token string) ClientOption {
 	return &accessTokenOption{Token: token}
 }
 
-type authGetOption struct {
+type instantAuthOption struct {
 	AppID     string
 	AppSecret string
 }
 
-func (a *authGetOption) Apply(settings *DialSettings) error {
+func (a *instantAuthOption) Apply(settings *DialSettings) error {
 	settings.AppID = a.AppID
 	settings.AppSecret = a.AppSecret
 	return nil
 }
 
-// WithAuthGet 没有token,根据app_id和app_secret获取token
-func WithAuthGet(appID, appSecret string) ClientOption {
-	return &authGetOption{AppID: appID, AppSecret: appSecret}
+// WithInstantAuth 没有token,即时授权,根据app_id和app_secret获取token
+func WithInstantAuth(appID, appSecret string) ClientOption {
+	return &instantAuthOption{AppID: appID, AppSecret: appSecret}
 }
 
 type urlOption struct {
