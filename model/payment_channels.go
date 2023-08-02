@@ -1,10 +1,24 @@
 package model
 
 type (
-	GetPaymentChannelsReq struct {
+	GetOrdinaryPaymentChannelsReq struct {
 		PrepayID string `json:"prepay_id"`
 	}
-	GetPaymentChannelsRes struct {
+	GetOrdinaryPaymentChannelsRes struct {
+		Code int    `json:"code"`
+		Msg  string `json:"msg"`
+		Data struct {
+			List  []*PaymentChannels `json:"list"`
+			Total int                `json:"total"`
+		} `json:"data"`
+	}
+)
+
+type (
+	GetCombinedPaymentChannelsReq struct {
+		PrepayID string `json:"prepay_id"`
+	}
+	GetCombinedPaymentChannelsRes struct {
 		Code int    `json:"code"`
 		Msg  string `json:"msg"`
 		Data struct {
