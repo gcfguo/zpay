@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"github.com/gcfguo/zpay/model"
 	"io"
 	"net/http"
 	"strings"
@@ -145,4 +146,63 @@ func (c *Client) writeRequestBody(data any) (io.Reader, error) {
 		rBody = bytes.NewReader(b)
 	}
 	return rBody, nil
+}
+
+func (c *Client) handleResponse(content []byte, result Result) error {
+	err := json.Unmarshal(content, result)
+	if err != nil {
+		return err
+	}
+	if !result.Ok() {
+		return result.Error()
+	}
+	return nil
+}
+
+//以下为业务API逻辑
+//```start
+
+// Payment
+// #支付
+func (c *Client) Payment(req *model.PaymentReq) (*model.PaymentRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/order/payment", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.PaymentRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// Refund
+// #退款
+func (c *Client) Refund(req *model.RefundReq) (*model.RefundRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/order/refund", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.RefundRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// GetPayWays
+// #获取支付方式
+func (c *Client) GetPayWays(req *model.GetPayWaysReq) (*model.GetPayWaysRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/payway/get", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.GetPayWaysRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
 }
