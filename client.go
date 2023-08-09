@@ -5,10 +5,11 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"github.com/gcfguo/zpay/model"
 	"io"
 	"net/http"
 	"strings"
+
+	"github.com/gcfguo/zpay/model"
 )
 
 type Client struct {
@@ -194,7 +195,8 @@ func (c *Client) Refund(req *model.RefundReq) (*model.RefundRes, error) {
 
 // GetPayWays
 // #获取支付方式
-func (c *Client) GetPayWays(req *model.GetPayWaysReq) (*model.GetPayWaysRes, error) {
+func (c *Client) GetPayWays(req *model.GetPayWaysReq) (
+	*model.GetPayWaysRes, error) {
 	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/payway/get", req, nil)
 	if err != nil {
 		return nil, err
@@ -205,4 +207,32 @@ func (c *Client) GetPayWays(req *model.GetPayWaysReq) (*model.GetPayWaysRes, err
 		return nil, err
 	}
 	return res, nil
+}
+
+// CustomsDeclare
+// #订单推送海关
+func (c *Client) CustomsDeclare(req *model.CustomsDeclareReq) (
+	*model.CustomsDeclareRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/customs/declare", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.CustomsDeclareRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// CustomsRedeclare
+// #订单重新推送海关
+func (c *Client) CustomsRedeclare() {
+
+}
+
+// CustomsQuery
+// #订单推送查询
+func (c *Client) CustomsQuery() {
+
 }
