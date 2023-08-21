@@ -4,15 +4,15 @@ import "fmt"
 
 type (
 	PaymentReq struct {
-		MasterOrderNo    string      `json:"master_order_no" v:"bail|required|min-length:1"`
-		TotalAmount      string      `json:"total_amount" v:"bail|required|min-length:1"`
+		MasterOrderNo    string      `json:"master_order_no"`
+		TotalAmount      string      `json:"total_amount"`
 		Attach           string      `json:"attach"`
-		Description      string      `json:"description" v:"bail|required|min-length:1"`
-		Currency         string      `json:"currency" v:"bail|required|min-length:1"`
-		ExpiresInSeconds int         `json:"expires_in_seconds" v:"bail|required|min:1"`
-		SubOrders        []*SubOrder `json:"sub_orders" v:"bail|required|min-length:1"`
-		PayWayID         uint64      `json:"pay_way_id" v:"bail|required|min:1"`
-		SceneInfo        *SceneInfo  `json:"scene_info" v:"bail|required"`
+		Description      string      `json:"description"`
+		Currency         string      `json:"currency"`
+		ExpiresInSeconds int         `json:"expires_in_seconds"`
+		SubOrders        []*SubOrder `json:"sub_orders"`
+		PayWayID         uint64      `json:"pay_way_id"`
+		SceneInfo        *SceneInfo  `json:"scene_info"`
 	}
 	PaymentRes struct {
 		Code int    `json:"code"`
@@ -34,18 +34,31 @@ func (s *PaymentRes) Error() error {
 }
 
 type SubOrder struct {
-	ZPayMchID      uint64 `json:"zpay_mch_id"`
-	SubOrderNo     string `json:"sub_order_no" v:"bail|required|min-length:1"`
-	Description    string `json:"description" v:"bail|required|min-length:1"`
-	Attach         string `json:"attach"`
-	InherentAmount string `json:"inherent_amount" v:"bail|required|min-length:1"`
-	AdditionalFee  string `json:"additional_fee" v:"bail|required|min-length:1"`
-	CallbackURL    string `json:"callback_url" v:"bail|required|min-length:1"`
+	ZPayMchID        uint64  `json:"zpay_mch_id"`
+	SubOrderNo       string  `json:"sub_order_no"`
+	Description      string  `json:"description"`
+	Attach           string  `json:"attach"`
+	GoodsTotalAmount string  `json:"goods_total_amount"`
+	Discount         string  `json:"discount"`
+	ShippingFee      string  `json:"shipping_fee"`
+	TaxFee           string  `json:"tax_fee"`
+	InsuranceFee     string  `json:"insurance_fee"`
+	CallbackURL      string  `json:"callback_url"`
+	Items            []*Item `json:"items"`
+}
+
+type Item struct {
+	SkuID       string `json:"sku_id"`
+	Category    string `json:"category"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	UnitPrice   string `json:"unit_price"`
+	Quantity    int    `json:"quantity"`
 }
 
 type SceneInfo struct {
 	//下单场景类型
-	SceneType string `json:"scene_type" v:"bail|required|in:NATIVE"`
+	SceneType string `json:"scene_type"`
 	//DeviceID 商户端设备号
 	DeviceID string `json:"device_id"`
 	//PayerClientIP 用户终端IP
