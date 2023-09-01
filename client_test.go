@@ -49,13 +49,11 @@ func TestClient_Payment(t *testing.T) {
 		ExpiresInSeconds: 7200,
 		SubOrders: []*model.SubOrder{
 			{
-				ZPayMchID:      0,
-				SubOrderNo:     "202308071358",
-				Description:    "测试",
-				Attach:         "测试",
-				InherentAmount: "0.01",
-				AdditionalFee:  "0",
-				CallbackURL:    "https://localhost:8888/v1/open/testcallback",
+				ZPayMchID:   0,
+				SubOrderNo:  "202308071358",
+				Description: "测试",
+				Attach:      "测试",
+				CallbackURL: "https://localhost:8888/v1/open/testcallback",
 			},
 		},
 		PayWayID: 2837253544757690459,
@@ -78,9 +76,7 @@ func TestClient_GetPayWays(t *testing.T) {
 	if err != nil {
 		t.Fatal("初始化失败:", err)
 	}
-	got, err := client.GetPayWays(&model.GetPayWaysReq{
-		Currency: "CNY",
-	})
+	got, err := client.GetPayWays(&model.GetPayWaysReq{})
 	if err != nil {
 		t.Fatal("获取支付方式失败:", err)
 	}
