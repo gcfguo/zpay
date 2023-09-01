@@ -26,7 +26,9 @@ func (r *GetPayWaysRes) Error() error {
 }
 
 type PayWays struct {
-	PayWayId    uint64 `json:"pay_way_id"`
-	Logo        string `json:"logo"`
-	Description string `json:"description"`
+	PayWayId         string   `json:"pay_way_id"`
+	Logo             string   `json:"logo"`
+	Description      string   `json:"description"`
+	Currencies       []string `json:"currencies"`
+	CustomsCountries []string `json:"customs_countries"`
 }
