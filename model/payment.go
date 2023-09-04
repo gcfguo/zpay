@@ -11,7 +11,7 @@ type (
 		Currency         string      `json:"currency"`
 		ExpiresInSeconds int         `json:"expires_in_seconds"`
 		SubOrders        []*SubOrder `json:"sub_orders"`
-		PayWayID         uint64      `json:"pay_way_id"`
+		PayWayID         string      `json:"pay_way_id"`
 		SceneInfo        *SceneInfo  `json:"scene_info"`
 	}
 	PaymentRes struct {
