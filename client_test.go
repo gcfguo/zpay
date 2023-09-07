@@ -56,7 +56,7 @@ func TestClient_Payment(t *testing.T) {
 				CallbackURL: "https://localhost:8888/v1/open/testcallback",
 			},
 		},
-		PayWayID: 2837253544757690459,
+		PayWayID: "2837253544757690459",
 		SceneInfo: &model.SceneInfo{
 			SceneType: "NATIVE",
 		},

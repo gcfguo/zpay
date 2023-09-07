@@ -69,6 +69,10 @@ type SceneInfo struct {
 	H5AppName string `json:"h5_app_name"`
 	//H5AppURL 网站URL
 	H5AppURL string `json:"h5_app_url"`
+	//ReturnURL 支付后跳转地址
+	ReturnURL string `json:"return_url"`
+	//CancelURL 支付取消后跳转地址
+	CancelURL string `json:"cancel_url"`
 }
 
 type H5Result struct {
