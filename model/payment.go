@@ -84,6 +84,7 @@ type NativeResult struct {
 }
 
 type JSAPIResult struct {
+	AuthLink  string `json:"auth_link,omitempty"`
 	AppID     string `json:"app_id"`
 	TimeStamp string `json:"time_stamp"`
 	NonceStr  string `json:"nonce_str"`
