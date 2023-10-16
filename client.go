@@ -160,11 +160,113 @@ func (c *Client) handleResponse(content []byte, result Result) error {
 	return nil
 }
 
-//以下为业务API逻辑
-//```start
+// Register
+// 注册
+func (c *Client) Register(req *model.RegisterReq) (*model.RegisterRes, error) {
+	resContent, err := c.doRequest(http.MethodPost, "/v1/open/merchant/register", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.RegisterRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// Login
+// 登录
+func (c *Client) Login(req *model.LoginReq) (*model.LoginRes, error) {
+	resContent, err := c.doRequest(http.MethodPost, "/v1/open/merchant/login", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.LoginRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// GetApps
+// 获取应用
+func (c *Client) GetApps(req *model.GetAppsReq) (*model.GetAppsRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodGet, "/v1/api/app/get", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.GetAppsRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// CreateApp
+// 创建应用
+func (c *Client) CreateApp(req *model.CreateAppReq) (*model.CreateAppRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/app/create", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.CreateAppRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// AppSettings
+// 应用设置
+func (c *Client) AppSettings(req *model.AppSettingsReq) (*model.AppSettingsRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/app/settings", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.AppSettingsRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// CreatePayPalChannel
+// 创建paypal支付渠道
+func (c *Client) CreatePayPalChannel(req *model.CreatePayPalChannelReq) (*model.CreatePayPalChannelRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/paypal/create", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.CreatePayPalChannelRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// CreatePayWay
+// 创建支付方式
+func (c *Client) CreatePayWay(req *model.CreatePayWayReq) (*model.CreatePayWayRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/payway/create", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.CreatePayWayRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
 
 // Payment
-// #支付
+// 支付
 func (c *Client) Payment(req *model.PaymentReq) (*model.PaymentRes, error) {
 	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/order/payment", req, nil)
 	if err != nil {
@@ -179,7 +281,7 @@ func (c *Client) Payment(req *model.PaymentReq) (*model.PaymentRes, error) {
 }
 
 // Refund
-// #退款
+// 退款
 func (c *Client) Refund(req *model.RefundReq) (*model.RefundRes, error) {
 	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/order/refund", req, nil)
 	if err != nil {
@@ -194,7 +296,7 @@ func (c *Client) Refund(req *model.RefundReq) (*model.RefundRes, error) {
 }
 
 // GetPayWays
-// #获取支付方式
+// 获取支付方式
 func (c *Client) GetPayWays(req *model.GetPayWaysReq) (
 	*model.GetPayWaysRes, error) {
 	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/payway/get", req, nil)
@@ -210,7 +312,7 @@ func (c *Client) GetPayWays(req *model.GetPayWaysReq) (
 }
 
 // CustomsDeclare
-// #订单推送海关
+// 订单推送海关
 func (c *Client) CustomsDeclare(req *model.CustomsDeclareReq) (
 	*model.CustomsDeclareRes, error) {
 	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/customs/declare", req, nil)
@@ -226,13 +328,13 @@ func (c *Client) CustomsDeclare(req *model.CustomsDeclareReq) (
 }
 
 // CustomsRedeclare
-// #订单重新推送海关
+// 订单重新推送海关
 func (c *Client) CustomsRedeclare() {
 
 }
 
 // CustomsQuery
-// #订单推送查询
+// 订单推送查询
 func (c *Client) CustomsQuery() {
 
 }
