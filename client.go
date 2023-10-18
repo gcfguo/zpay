@@ -160,6 +160,10 @@ func (c *Client) handleResponse(content []byte, result Result) error {
 	return nil
 }
 
+func (c *Client) GetAccessToken() string {
+	return c.accessToken
+}
+
 // Register
 // 注册
 func (c *Client) Register(req *model.RegisterReq) (*model.RegisterRes, error) {
