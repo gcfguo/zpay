@@ -254,6 +254,21 @@ func (c *Client) CreatePayPalChannel(req *model.CreatePayPalChannelReq) (*model.
 	return res, nil
 }
 
+// CreateWechatChannel
+// 创建微信支付渠道
+func (c *Client) CreateWechatChannel(req *model.CreateWechatSubChannelReq) (*model.CreateWechatSubChannelRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/wechat/sub/create", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.CreateWechatSubChannelRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
 // CreatePayWay
 // 创建支付方式
 func (c *Client) CreatePayWay(req *model.CreatePayWayReq) (*model.CreatePayWayRes, error) {
