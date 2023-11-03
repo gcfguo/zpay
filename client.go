@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"io"
+	"net"
 	"net/http"
 	"strings"
 
@@ -76,10 +77,21 @@ func (c *Client) doRequest(
 	if err != nil {
 		return nil, err
 	}
-	resp, err := c.httpClient.Do(req)
-	if err != nil {
+
+	var resp *http.Response
+	for t := 0; t < 3; t++ {
+		resp, err = c.httpClient.Do(req)
+		if err == nil {
+			break
+		}
+
+		if _, ok := err.(net.Error); ok {
+			continue
+		}
+
 		return nil, err
 	}
+
 	b, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
@@ -115,10 +127,21 @@ func (c *Client) doRequestWithToken(
 		return nil, err
 	}
 	req.Header.Set("Authorization", "Bearer "+c.accessToken)
-	resp, err := c.httpClient.Do(req)
-	if err != nil {
+
+	var resp *http.Response
+	for t := 0; t < 3; t++ {
+		resp, err = c.httpClient.Do(req)
+		if err == nil {
+			break
+		}
+
+		if _, ok := err.(net.Error); ok {
+			continue
+		}
+
 		return nil, err
 	}
+
 	b, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
