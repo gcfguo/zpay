@@ -81,7 +81,7 @@ func (c *Client) doRequest(
 	var resp *http.Response
 	for t := 0; t < 3; t++ {
 		resp, err = c.httpClient.Do(req)
-		if err == nil {
+		if err == nil && resp != nil {
 			break
 		}
 
