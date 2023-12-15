@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"net"
 	"net/http"
@@ -140,6 +141,9 @@ func (c *Client) doRequestWithToken(
 		}
 
 		return nil, err
+	}
+	if resp == nil {
+		return nil, fmt.Errorf("too many failed")
 	}
 
 	b, err := io.ReadAll(resp.Body)
