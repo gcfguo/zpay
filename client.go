@@ -92,6 +92,9 @@ func (c *Client) doRequest(
 
 		return nil, err
 	}
+	if resp == nil {
+		return nil, fmt.Errorf("too many failures")
+	}
 
 	b, err := io.ReadAll(resp.Body)
 	if err != nil {
