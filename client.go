@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"net"
 	"net/http"
@@ -91,6 +92,9 @@ func (c *Client) doRequest(
 
 		return nil, err
 	}
+	if resp == nil {
+		return nil, fmt.Errorf("too many failures")
+	}
 
 	b, err := io.ReadAll(resp.Body)
 	if err != nil {
@@ -140,6 +144,9 @@ func (c *Client) doRequestWithToken(
 		}
 
 		return nil, err
+	}
+	if resp == nil {
+		return nil, fmt.Errorf("too many failures")
 	}
 
 	b, err := io.ReadAll(resp.Body)
