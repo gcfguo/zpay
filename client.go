@@ -179,13 +179,15 @@ func (c *Client) writeRequestBody(data any) (io.Reader, error) {
 	return rBody, nil
 }
 
-func (c *Client) handleResponse(content []byte, result Result) error {
-	err := json.Unmarshal(content, result)
+func (c *Client) handleResponse(content []byte, data any) error {
+	var result APIResult
+	result.Data = data
+	err := json.Unmarshal(content, &result)
 	if err != nil {
 		return err
 	}
-	if !result.Ok() {
-		return result.Error()
+	if result.Code != 0 {
+		return fmt.Errorf(result.Msg)
 	}
 	return nil
 }
@@ -353,6 +355,20 @@ func (c *Client) GetPayWays(req *model.GetPayWaysReq) (
 		return nil, err
 	}
 	res := new(model.GetPayWaysRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+func (c *Client) AddPayWay(req *model.AddPayWayReq) (
+	*model.AddPayWayRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/payway/add", req, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.AddPayWayRes)
 	err = c.handleResponse([]byte(*resContent), res)
 	if err != nil {
 		return nil, err

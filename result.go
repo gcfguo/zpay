@@ -1,6 +1,7 @@
 package zpay
 
-type Result interface {
-	Ok() bool
-	Error() error
+type APIResult struct {
+	Code int    `json:"code"`
+	Msg  string `json:"msg"`
+	Data any    `json:"data"`
 }
