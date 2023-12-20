@@ -1,7 +1,5 @@
 package model
 
-import "fmt"
-
 type (
 	CustomsDeclareReq struct {
 		ZPayMchID  string `json:"zpay_mch_id"`
@@ -19,15 +17,5 @@ type (
 		ProductFee   string `json:"product_fee"`
 	}
 	CustomsDeclareRes struct {
-		Code int    `json:"code"`
-		Msg  string `json:"msg"`
 	}
 )
-
-func (r *CustomsDeclareRes) Ok() bool {
-	return r.Code == 0
-}
-
-func (r *CustomsDeclareRes) Error() error {
-	return fmt.Errorf(r.Msg)
-}

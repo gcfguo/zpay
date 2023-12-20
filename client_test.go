@@ -24,10 +24,10 @@ func TestClient_Register(t *testing.T) {
 		t.Fatal("初始化失败:", err)
 	}
 	_, err = client.Register(&model.RegisterReq{
-		Name:     "your_name",
-		Email:    "your_email",
-		Phone:    "your_phone",
-		Password: "your_password",
+		Name:     "2227309180@qq.com",
+		Email:    "2227309180@qq.com",
+		Phone:    "13888888888",
+		Password: "13999999999",
 	})
 	if err != nil {
 		t.Fatal("注册失败:", err)
@@ -45,7 +45,7 @@ func TestClient_Login(t *testing.T) {
 	}
 	got, err := client.Login(&model.LoginReq{
 		Email:    "2227309180@qq.com",
-		Password: "hhsjh34444",
+		Password: "13999999999",
 	})
 	if err != nil {
 		t.Fatal("登录失败:", err)

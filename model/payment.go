@@ -1,7 +1,5 @@
 package model
 
-import "fmt"
-
 type (
 	PaymentReq struct {
 		MasterOrderNo    string      `json:"master_order_no"`
@@ -15,23 +13,11 @@ type (
 		SceneInfo        *SceneInfo  `json:"scene_info"`
 	}
 	PaymentRes struct {
-		Code int    `json:"code"`
-		Msg  string `json:"msg"`
-		Data struct {
-			H5     *H5Result     `json:"h5,omitempty"`
-			Native *NativeResult `json:"native,omitempty"`
-			JSAPI  *JSAPIResult  `json:"jsapi,omitempty"`
-		} `json:"data"`
+		H5     *H5Result     `json:"h5,omitempty"`
+		Native *NativeResult `json:"native,omitempty"`
+		JSAPI  *JSAPIResult  `json:"jsapi,omitempty"`
 	}
 )
-
-func (s *PaymentRes) Ok() bool {
-	return s.Code == 0
-}
-
-func (s *PaymentRes) Error() error {
-	return fmt.Errorf(s.Msg)
-}
 
 type SubOrder struct {
 	ZPayMchID        uint64  `json:"zpay_mch_id"`
