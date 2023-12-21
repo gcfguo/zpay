@@ -57,5 +57,8 @@ type (
 		SandboxSwitch int    `json:"sandbox_switch"`
 	}
 	AddPayWayRes struct {
+		ZPayMchID uint64 `json:"zpay_mch_id"`
+		AppID     string `json:"app_id"`
+		AppSecret string `json:"app_secret"`
 	}
 )
