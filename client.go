@@ -105,7 +105,15 @@ func (c *Client) doRequest(
 	if scanner == nil {
 		return &content, nil
 	}
-	err = json.Unmarshal(b, scanner)
+	var result APIResult
+	result.Data = scanner
+	err = json.Unmarshal(b, &result)
+	if err != nil {
+		return &content, err
+	}
+	if result.Code != 0 {
+		return &content, fmt.Errorf(result.Msg)
+	}
 	return &content, err
 }
 
