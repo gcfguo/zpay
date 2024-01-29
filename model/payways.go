@@ -62,3 +62,26 @@ type (
 		AppSecret string `json:"app_secret"`
 	}
 )
+
+type (
+	ShowPaymentChannelRes struct {
+		Paypal *ChannelPaypal `json:"paypal,omitempty"`
+		Alipay *ChannelAlipay `json:"alipay,omitempty"`
+		Wechat *ChannelWechat `json:"wechat,omitempty"`
+	}
+	ChannelPaypal struct {
+		ClientId     string `json:"client_id"      `
+		ClientSecret string `json:"client_secret"  `
+		IsSandbox    bool   `json:"is_sandbox" `
+	}
+	ChannelAlipay struct {
+		MchId      string `json:"mch_id"         `
+		AppId      string `json:"app_id"         `
+		PrivateKey string `json:"private_key"    `
+		PublicKey  string `json:"public_key"     `
+		IsSandbox  bool   `json:"is_sandbox" `
+	}
+	ChannelWechat struct {
+		MchId string `json:"mch_id"`
+	}
+)
