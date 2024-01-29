@@ -219,3 +219,19 @@ func TestClient_GetPayWays(t *testing.T) {
 	}
 	t.Log("获取到的支付方式:", util.JSON(got))
 }
+
+func TestClient_ShowPaymentChannel(t *testing.T) {
+	client, err := NewClient(
+		context.Background(),
+		WithHttpClient(&http.Client{Timeout: 5 * time.Second}),
+		WithAccessToken(accessToken),
+	)
+	if err != nil {
+		t.Fatal("err0:", err)
+	}
+	got, err := client.ShowPaymentChannel()
+	if err != nil {
+		t.Fatal("err1:", err)
+	}
+	t.Log("got:", util.JSON(got))
+}

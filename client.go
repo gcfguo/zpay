@@ -411,3 +411,18 @@ func (c *Client) CustomsRedeclare() {
 func (c *Client) CustomsQuery() {
 
 }
+
+// ShowPaymentChannel
+// 展示支付渠道
+func (c *Client) ShowPaymentChannel() (*model.ShowPaymentChannelRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/payway/channels", nil, nil)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.ShowPaymentChannelRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
