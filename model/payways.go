@@ -33,13 +33,14 @@ type (
 
 type (
 	AddPayWayReq struct {
-		Name     string        `json:"name"`
-		Email    string        `json:"email"`
-		Phone    string        `json:"phone"`
-		Password string        `json:"password"`
-		Wechat   *PayWayWechat `json:"wechat,omitempty"`
-		Paypal   *PayWayPaypal `json:"paypal,omitempty"`
-		Alipay   *PayWayAlipay `json:"alipay,omitempty"`
+		Name     string         `json:"name"`
+		Email    string         `json:"email"`
+		Phone    string         `json:"phone"`
+		Password string         `json:"password"`
+		Wechat   *PayWayWechat  `json:"wechat,omitempty"`
+		Paypal   *PayWayPaypal  `json:"paypal,omitempty"`
+		Alipay   *PayWayAlipay  `json:"alipay,omitempty"`
+		Useepay  *PayWayUseepay `json:"useepay,omitempty"`
 	}
 	PayWayWechat struct {
 		SubMchID string `json:"sub_mch_id"`
@@ -56,6 +57,12 @@ type (
 		PublicKey     string `json:"public_key"`
 		SandboxSwitch int    `json:"sandbox_switch"`
 	}
+	PayWayUseepay struct {
+		MerchantNo string `json:"merchant_no"`
+		AppID      string `json:"app_id"`
+		SecretKey  string `json:"secret_key"`
+		IsSandBox  bool   `json:"is_sand_box"`
+	}
 	AddPayWayRes struct {
 		ZPayMchID uint64 `json:"zpay_mch_id"`
 		AppID     string `json:"app_id"`
@@ -65,9 +72,10 @@ type (
 
 type (
 	ShowPaymentChannelRes struct {
-		Paypal *ChannelPaypal `json:"paypal,omitempty"`
-		Alipay *ChannelAlipay `json:"alipay,omitempty"`
-		Wechat *ChannelWechat `json:"wechat,omitempty"`
+		Paypal  *ChannelPaypal  `json:"paypal,omitempty"`
+		Alipay  *ChannelAlipay  `json:"alipay,omitempty"`
+		Wechat  *ChannelWechat  `json:"wechat,omitempty"`
+		Useepay *ChannelUseepay `json:"useepay,omitempty"`
 	}
 	ChannelPaypal struct {
 		ClientId     string `json:"client_id"      `
@@ -83,5 +91,12 @@ type (
 	}
 	ChannelWechat struct {
 		MchId string `json:"mch_id"`
+	}
+	ChannelUseepay struct {
+		MerchantNo string `json:"merchant_no"    `
+		AppId      string `json:"app_id"         `
+		SignType   string `json:"sign_type"      `
+		SecretKey  string `json:"secret_key"     `
+		IsSandbox  bool   `json:"is_sandbox" `
 	}
 )
