@@ -235,3 +235,30 @@ func TestClient_ShowPaymentChannel(t *testing.T) {
 	}
 	t.Log("got:", util.JSON(got))
 }
+
+func TestClient_AddPayWay(t *testing.T) {
+	client, err := NewClient(
+		context.Background(),
+		WithHttpClient(&http.Client{Timeout: 5 * time.Second}),
+		WithAccessToken(accessToken),
+	)
+	if err != nil {
+		t.Fatal("err0:", err)
+	}
+	got, err := client.AddPayWay(&model.AddPayWayReq{
+		Name:     "",
+		Email:    "",
+		Phone:    "",
+		Password: "",
+		Useepay: &model.PayWayUseepay{
+			MerchantNo: "",
+			AppID:      "",
+			SecretKey:  "",
+			IsSandBox:  true,
+		},
+	})
+	if err != nil {
+		t.Fatal("err1:", err)
+	}
+	t.Log("got:", util.JSON(got))
+}
