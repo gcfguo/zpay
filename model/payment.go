@@ -20,17 +20,19 @@ type (
 )
 
 type SubOrder struct {
-	ZPayMchID        uint64  `json:"zpay_mch_id"`
-	SubOrderNo       string  `json:"sub_order_no"`
-	Description      string  `json:"description"`
-	Attach           string  `json:"attach"`
-	GoodsTotalAmount string  `json:"goods_total_amount"`
-	Discount         string  `json:"discount"`
-	ShippingFee      string  `json:"shipping_fee"`
-	TaxFee           string  `json:"tax_fee"`
-	InsuranceFee     string  `json:"insurance_fee"`
-	CallbackURL      string  `json:"callback_url"`
-	Items            []*Item `json:"items"`
+	ZPayMchID        uint64   `json:"zpay_mch_id"`
+	SubOrderNo       string   `json:"sub_order_no"`
+	Description      string   `json:"description"`
+	Attach           string   `json:"attach"`
+	GoodsTotalAmount string   `json:"goods_total_amount"`
+	Discount         string   `json:"discount"`
+	ShippingFee      string   `json:"shipping_fee"`
+	TaxFee           string   `json:"tax_fee"`
+	InsuranceFee     string   `json:"insurance_fee"`
+	CallbackURL      string   `json:"callback_url"`
+	Items            []*Item  `json:"items"`
+	BillingAddress   *Address `json:"billing_address"`
+	ShippingAddress  *Address `json:"shipping_address"`
 }
 
 type Item struct {
@@ -77,4 +79,17 @@ type JSAPIResult struct {
 	Package   string `json:"package"`
 	SignType  string `json:"sign_type"`
 	PaySign   string `json:"pay_sign"`
+}
+
+type Address struct {
+	HouseNo    string `json:"house_no,omitempty"`
+	Email      string `json:"email"`
+	PhoneNo    string `json:"phone_no,omitempty"`
+	FirstName  string `json:"first_name"`
+	LastName   string `json:"last_name"`
+	Street     string `json:"street"`
+	PostalCode string `json:"postal_code"`
+	City       string `json:"city,omitempty"`
+	State      string `json:"state"`
+	Country    string `json:"country"`
 }
