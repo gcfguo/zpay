@@ -40,10 +40,10 @@
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "v1.4.17",
+    "git-widget-placeholder": "v1.4.22",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "D:/workspace/golang/src/zpay",
+    "last_opened_file_path": "D:/workspace/golang/src/xbuy.website/xbuy-backend",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
@@ -55,19 +55,17 @@
       <recent name="D:\workspace\golang\src\ZpaySDK\zpay\biz" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestClient_Login in github.com/gcfguo/zpay">
-    <configuration name="TestClient_AppSettings in github.com/gcfguo/zpay" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestClient_AddPayWay in github.com/gcfguo/zpay">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="zpay" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <package value="github.com/gcfguo/zpay" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestClient_AppSettings\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestClient_CreatePayPalChannel in github.com/gcfguo/zpay" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestClient_AddPayWay in github.com/gcfguo/zpay" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="zpay" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
@@ -75,18 +73,7 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestClient_CreatePayPalChannel\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestClient_CreatePayWay in github.com/gcfguo/zpay" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="zpay" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/gcfguo/zpay" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestClient_CreatePayWay\E$" />
+      <pattern value="^\QTestClient_AddPayWay\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestClient_Login in github.com/gcfguo/zpay" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -111,13 +98,45 @@
       <pattern value="^\QTestClient_Register\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestClient_ShowPaymentChannel in github.com/gcfguo/zpay (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="zpay" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/gcfguo/zpay" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestClient_ShowPaymentChannel\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestClient_ShowPaymentChannel in github.com/gcfguo/zpay" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="zpay" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/gcfguo/zpay" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestClient_ShowPaymentChannel\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="zpay" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/gcfguo/zpay" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestClient_AddPayWay in github.com/gcfguo/zpay" />
+        <item itemvalue="Go Test.TestClient_ShowPaymentChannel in github.com/gcfguo/zpay (1)" />
+        <item itemvalue="Go Test.TestClient_ShowPaymentChannel in github.com/gcfguo/zpay" />
         <item itemvalue="Go Test.TestClient_Login in github.com/gcfguo/zpay" />
         <item itemvalue="Go Test.TestClient_Register in github.com/gcfguo/zpay" />
-        <item itemvalue="Go Test.TestClient_CreatePayWay in github.com/gcfguo/zpay" />
-        <item itemvalue="Go Test.TestClient_CreatePayPalChannel in github.com/gcfguo/zpay" />
-        <item itemvalue="Go Test.TestClient_AppSettings in github.com/gcfguo/zpay" />
       </list>
     </recent_temporary>
   </component>
