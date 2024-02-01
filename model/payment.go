@@ -11,6 +11,8 @@ type (
 		SubOrders        []*SubOrder `json:"sub_orders"`
 		PayWayID         string      `json:"pay_way_id"`
 		SceneInfo        *SceneInfo  `json:"scene_info"`
+		BillingAddress   *Address    `json:"billing_address"`
+		ShippingAddress  *Address    `json:"shipping_address"`
 	}
 	PaymentRes struct {
 		H5     *H5Result     `json:"h5,omitempty"`
@@ -20,19 +22,17 @@ type (
 )
 
 type SubOrder struct {
-	ZPayMchID        uint64   `json:"zpay_mch_id"`
-	SubOrderNo       string   `json:"sub_order_no"`
-	Description      string   `json:"description"`
-	Attach           string   `json:"attach"`
-	GoodsTotalAmount string   `json:"goods_total_amount"`
-	Discount         string   `json:"discount"`
-	ShippingFee      string   `json:"shipping_fee"`
-	TaxFee           string   `json:"tax_fee"`
-	InsuranceFee     string   `json:"insurance_fee"`
-	CallbackURL      string   `json:"callback_url"`
-	Items            []*Item  `json:"items"`
-	BillingAddress   *Address `json:"billing_address"`
-	ShippingAddress  *Address `json:"shipping_address"`
+	ZPayMchID        uint64  `json:"zpay_mch_id"`
+	SubOrderNo       string  `json:"sub_order_no"`
+	Description      string  `json:"description"`
+	Attach           string  `json:"attach"`
+	GoodsTotalAmount string  `json:"goods_total_amount"`
+	Discount         string  `json:"discount"`
+	ShippingFee      string  `json:"shipping_fee"`
+	TaxFee           string  `json:"tax_fee"`
+	InsuranceFee     string  `json:"insurance_fee"`
+	CallbackURL      string  `json:"callback_url"`
+	Items            []*Item `json:"items"`
 }
 
 type Item struct {

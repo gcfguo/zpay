@@ -254,7 +254,7 @@ func TestClient_AddPayWay(t *testing.T) {
 			MerchantNo: "",
 			AppID:      "",
 			SecretKey:  "",
-			IsSandBox:  true,
+			IsSandBox:  false,
 		},
 	})
 	if err != nil {
