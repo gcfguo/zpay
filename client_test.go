@@ -24,10 +24,10 @@ func TestClient_Register(t *testing.T) {
 		t.Fatal("初始化失败:", err)
 	}
 	_, err = client.Register(&model.RegisterReq{
-		Name:     "2227309180@qq.com",
-		Email:    "2227309180@qq.com",
-		Phone:    "13888888888",
-		Password: "13999999999",
+		Name:     "",
+		Email:    "",
+		Phone:    "",
+		Password: "",
 	})
 	if err != nil {
 		t.Fatal("注册失败:", err)
@@ -44,8 +44,8 @@ func TestClient_Login(t *testing.T) {
 		t.Fatal("初始化失败:", err)
 	}
 	got, err := client.Login(&model.LoginReq{
-		Email:    "2227309180@qq.com",
-		Password: "13999999999",
+		Email:    "",
+		Password: "",
 	})
 	if err != nil {
 		t.Fatal("登录失败:", err)
@@ -80,7 +80,7 @@ func TestClient_Payment(t *testing.T) {
 		t.Fatal("初始化失败:", err)
 	}
 	got, err := client.Payment(&model.PaymentReq{
-		MasterOrderNo:    "2023080712357",
+		MasterOrderNo:    "master_order_no",
 		TotalAmount:      "0.01",
 		Attach:           "测试",
 		Description:      "测试",
@@ -89,13 +89,13 @@ func TestClient_Payment(t *testing.T) {
 		SubOrders: []*model.SubOrder{
 			{
 				ZPayMchID:   0,
-				SubOrderNo:  "202308071358",
+				SubOrderNo:  "sub_order_no",
 				Description: "测试",
 				Attach:      "测试",
 				CallbackURL: "https://localhost:8888/v1/open/testcallback",
 			},
 		},
-		PayWayID: "2837253544757690459",
+		PayWayID: "pay_way_id",
 		SceneInfo: &model.SceneInfo{
 			SceneType: "NATIVE",
 		},
@@ -192,11 +192,11 @@ func TestClient_CreatePayWay(t *testing.T) {
 		t.Fatal("初始化失败:", err)
 	}
 	got, err := client.CreatePayWay(&model.CreatePayWayReq{
-		OwnerMchID:             2847805341842801462,
-		ChannelID:              4029586600,
+		OwnerMchID:             0,
+		ChannelID:              0,
 		ChannelType:            "paypal",
-		CurrencySettings:       `["CNY","USD"]`,
-		CustomsCountrySettings: `["CN"]`,
+		CurrencySettings:       `["USD"]`,
+		CustomsCountrySettings: `[]`,
 	})
 	if err != nil {
 		t.Fatal("创建支付方式失败:", err)
