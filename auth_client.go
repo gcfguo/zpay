@@ -22,7 +22,7 @@ func (a *AuthClient) GetAccessToken() (*model.GetAccessTokenRes, error) {
 	if err != nil {
 		return nil, err
 	}
-	err = a.handleResponse([]byte(*resContent), res)
+	err = a.handleResponse([]byte(*resContent), &res)
 	if err != nil {
 		return nil, err
 	}
