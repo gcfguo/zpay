@@ -46,9 +46,10 @@ type (
 		SubMchID string `json:"sub_mch_id"`
 	}
 	PayWayPaypal struct {
-		ClientID     string `json:"client_id"`
-		ClientSecret string `json:"client_secret"`
-		IsSandBox    bool   `json:"is_sand_box"`
+		ClientID     string   `json:"client_id"`
+		ClientSecret string   `json:"client_secret"`
+		IsSandBox    bool     `json:"is_sand_box"`
+		Currencies   []string `json:"currencies"`
 	}
 	PayWayAlipay struct {
 		AppID         string `json:"app_id"`
