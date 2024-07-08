@@ -80,9 +80,10 @@ type (
 		Useepay *ChannelUseepay `json:"useepay,omitempty"`
 	}
 	ChannelPaypal struct {
-		ClientId     string `json:"client_id"      `
-		ClientSecret string `json:"client_secret"  `
-		IsSandbox    bool   `json:"is_sandbox" `
+		ClientId     string   `json:"client_id"      `
+		ClientSecret string   `json:"client_secret"  `
+		IsSandbox    bool     `json:"is_sandbox" `
+		Currencies   []string `json:"currencies"`
 	}
 	ChannelAlipay struct {
 		MchId      string `json:"mch_id"         `
@@ -95,10 +96,11 @@ type (
 		MchId string `json:"mch_id"`
 	}
 	ChannelUseepay struct {
-		MerchantNo string `json:"merchant_no"    `
-		AppId      string `json:"app_id"         `
-		SignType   string `json:"sign_type"      `
-		SecretKey  string `json:"secret_key"     `
-		IsSandbox  bool   `json:"is_sandbox" `
+		MerchantNo string   `json:"merchant_no"    `
+		AppId      string   `json:"app_id"         `
+		SignType   string   `json:"sign_type"      `
+		SecretKey  string   `json:"secret_key"     `
+		IsSandbox  bool     `json:"is_sandbox" `
+		Currencies []string `json:"currencies"`
 	}
 )
