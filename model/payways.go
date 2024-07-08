@@ -59,10 +59,11 @@ type (
 		SandboxSwitch int    `json:"sandbox_switch"`
 	}
 	PayWayUseepay struct {
-		MerchantNo string `json:"merchant_no"`
-		AppID      string `json:"app_id"`
-		SecretKey  string `json:"secret_key"`
-		IsSandBox  bool   `json:"is_sand_box"`
+		MerchantNo string   `json:"merchant_no"`
+		AppID      string   `json:"app_id"`
+		SecretKey  string   `json:"secret_key"`
+		IsSandBox  bool     `json:"is_sand_box"`
+		Currencies []string `json:"currencies"`
 	}
 	AddPayWayRes struct {
 		ZPayMchID uint64 `json:"zpay_mch_id"`
