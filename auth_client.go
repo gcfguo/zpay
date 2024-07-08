@@ -12,14 +12,17 @@ type AuthClient struct {
 
 func (a *AuthClient) GetAccessToken() (*model.GetAccessTokenRes, error) {
 	var res model.GetAccessTokenRes
-	_, err := a.doRequest(http.MethodPost,
+	resContent, err := a.doRequest(http.MethodPost,
 		"/v1/open/merchant/authorize",
 		&model.GetAccessTokenReq{
 			AppID:     a.appID,
 			AppSecret: a.appSecret,
 		},
-		&res,
 	)
+	if err != nil {
+		return nil, err
+	}
+	err = a.handleResponse([]byte(*resContent), res)
 	if err != nil {
 		return nil, err
 	}
