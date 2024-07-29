@@ -41,6 +41,7 @@ type (
 		Paypal   *PayWayPaypal  `json:"paypal,omitempty"`
 		Alipay   *PayWayAlipay  `json:"alipay,omitempty"`
 		Useepay  *PayWayUseepay `json:"useepay,omitempty"`
+		Stripe   *PayWayStripe  `json:"stripe,omitempty"`
 	}
 	PayWayWechat struct {
 		SubMchID string `json:"sub_mch_id"`
@@ -65,6 +66,10 @@ type (
 		IsSandBox  bool     `json:"is_sand_box"`
 		Currencies []string `json:"currencies"`
 	}
+	PayWayStripe struct {
+		SecretKey  string   `json:"secret_key"`
+		Currencies []string `json:"currencies"`
+	}
 	AddPayWayRes struct {
 		ZPayMchID uint64 `json:"zpay_mch_id"`
 		AppID     string `json:"app_id"`
@@ -78,6 +83,7 @@ type (
 		Alipay  *ChannelAlipay  `json:"alipay,omitempty"`
 		Wechat  *ChannelWechat  `json:"wechat,omitempty"`
 		Useepay *ChannelUseepay `json:"useepay,omitempty"`
+		Stripe  *ChannelStripe  `json:"stripe,omitempty"`
 	}
 	ChannelPaypal struct {
 		ClientId     string   `json:"client_id"      `
@@ -101,6 +107,10 @@ type (
 		SignType   string   `json:"sign_type"      `
 		SecretKey  string   `json:"secret_key"     `
 		IsSandbox  bool     `json:"is_sandbox" `
+		Currencies []string `json:"currencies"`
+	}
+	ChannelStripe struct {
+		SecretKey  string   `json:"secret_key"`
 		Currencies []string `json:"currencies"`
 	}
 )
