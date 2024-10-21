@@ -35,43 +35,47 @@ type (
 
 type (
 	AddPayWayReq struct {
-		Name             string         `json:"name"`
-		Email            string         `json:"email"`
-		Phone            string         `json:"phone"`
-		Password         string         `json:"password"`
-		Wechat           *PayWayWechat  `json:"wechat,omitempty"`
-		Paypal           *PayWayPaypal  `json:"paypal,omitempty"`
-		Alipay           *PayWayAlipay  `json:"alipay,omitempty"`
-		Useepay          *PayWayUseepay `json:"useepay,omitempty"`
-		Stripe           *PayWayStripe  `json:"stripe,omitempty"`
-		TradingCountries []string       `json:"trading_countries"`
+		Name     string         `json:"name"`
+		Email    string         `json:"email"`
+		Phone    string         `json:"phone"`
+		Password string         `json:"password"`
+		Wechat   *PayWayWechat  `json:"wechat,omitempty"`
+		Paypal   *PayWayPaypal  `json:"paypal,omitempty"`
+		Alipay   *PayWayAlipay  `json:"alipay,omitempty"`
+		Useepay  *PayWayUseepay `json:"useepay,omitempty"`
+		Stripe   *PayWayStripe  `json:"stripe,omitempty"`
 	}
 	PayWayWechat struct {
-		SubMchID string `json:"sub_mch_id"`
+		SubMchID         string   `json:"sub_mch_id"`
+		TradingCountries []string `json:"trading_countries"`
 	}
 	PayWayPaypal struct {
-		ClientID     string   `json:"client_id"`
-		ClientSecret string   `json:"client_secret"`
-		IsSandBox    bool     `json:"is_sand_box"`
-		Currencies   []string `json:"currencies"`
+		ClientID         string   `json:"client_id"`
+		ClientSecret     string   `json:"client_secret"`
+		IsSandBox        bool     `json:"is_sand_box"`
+		Currencies       []string `json:"currencies"`
+		TradingCountries []string `json:"trading_countries"`
 	}
 	PayWayAlipay struct {
-		AppID         string `json:"app_id"`
-		MchID         string `json:"mch_id"`
-		PrivateKey    string `json:"private_key"`
-		PublicKey     string `json:"public_key"`
-		SandboxSwitch int    `json:"sandbox_switch"`
+		AppID            string   `json:"app_id"`
+		MchID            string   `json:"mch_id"`
+		PrivateKey       string   `json:"private_key"`
+		PublicKey        string   `json:"public_key"`
+		SandboxSwitch    int      `json:"sandbox_switch"`
+		TradingCountries []string `json:"trading_countries"`
 	}
 	PayWayUseepay struct {
-		MerchantNo string   `json:"merchant_no"`
-		AppID      string   `json:"app_id"`
-		SecretKey  string   `json:"secret_key"`
-		IsSandBox  bool     `json:"is_sand_box"`
-		Currencies []string `json:"currencies"`
+		MerchantNo       string   `json:"merchant_no"`
+		AppID            string   `json:"app_id"`
+		SecretKey        string   `json:"secret_key"`
+		IsSandBox        bool     `json:"is_sand_box"`
+		Currencies       []string `json:"currencies"`
+		TradingCountries []string `json:"trading_countries"`
 	}
 	PayWayStripe struct {
-		SecretKey  string   `json:"secret_key"`
-		Currencies []string `json:"currencies"`
+		SecretKey        string   `json:"secret_key"`
+		Currencies       []string `json:"currencies"`
+		TradingCountries []string `json:"trading_countries"`
 	}
 	AddPayWayRes struct {
 		ZPayMchID uint64 `json:"zpay_mch_id"`
