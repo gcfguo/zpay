@@ -360,6 +360,20 @@ func (c *Client) AddPayWay(req *model.AddPayWayReq) (
 	return res, nil
 }
 
+func (c *Client) RemovePayWay(req *model.RemovePaymentWayReq) (
+	*model.RemovePaymentWayRes, error) {
+	resContent, err := c.doRequestWithToken(http.MethodPost, "/v1/api/payway/remove", req)
+	if err != nil {
+		return nil, err
+	}
+	res := new(model.RemovePaymentWayRes)
+	err = c.handleResponse([]byte(*resContent), res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
 // CustomsDeclare
 // 订单推送海关
 func (c *Client) CustomsDeclare(req *model.CustomsDeclareReq) (

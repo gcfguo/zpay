@@ -4,6 +4,7 @@ type (
 	GetPayWaysReq struct {
 		Currency       string `json:"currency"`
 		CustomsCountry string `json:"customs_country"`
+		TradingCountry string `json:"trading_country"`
 	}
 	GetPayWaysRes struct {
 		List  []*PayWays `json:"list"`
@@ -15,6 +16,7 @@ type (
 		Description      string   `json:"description"`
 		Currencies       []string `json:"currencies"`
 		CustomsCountries []string `json:"customs_countries"`
+		TradingCountries []string `json:"trading_countries"`
 	}
 )
 
@@ -33,15 +35,16 @@ type (
 
 type (
 	AddPayWayReq struct {
-		Name     string         `json:"name"`
-		Email    string         `json:"email"`
-		Phone    string         `json:"phone"`
-		Password string         `json:"password"`
-		Wechat   *PayWayWechat  `json:"wechat,omitempty"`
-		Paypal   *PayWayPaypal  `json:"paypal,omitempty"`
-		Alipay   *PayWayAlipay  `json:"alipay,omitempty"`
-		Useepay  *PayWayUseepay `json:"useepay,omitempty"`
-		Stripe   *PayWayStripe  `json:"stripe,omitempty"`
+		Name             string         `json:"name"`
+		Email            string         `json:"email"`
+		Phone            string         `json:"phone"`
+		Password         string         `json:"password"`
+		Wechat           *PayWayWechat  `json:"wechat,omitempty"`
+		Paypal           *PayWayPaypal  `json:"paypal,omitempty"`
+		Alipay           *PayWayAlipay  `json:"alipay,omitempty"`
+		Useepay          *PayWayUseepay `json:"useepay,omitempty"`
+		Stripe           *PayWayStripe  `json:"stripe,omitempty"`
+		TradingCountries []string       `json:"trading_countries"`
 	}
 	PayWayWechat struct {
 		SubMchID string `json:"sub_mch_id"`
@@ -78,6 +81,14 @@ type (
 )
 
 type (
+	RemovePaymentWayReq struct {
+		PaymentWays []string `json:"payment_ways"`
+	}
+	RemovePaymentWayRes struct {
+	}
+)
+
+type (
 	ShowPaymentChannelRes struct {
 		Paypal  *ChannelPaypal  `json:"paypal,omitempty"`
 		Alipay  *ChannelAlipay  `json:"alipay,omitempty"`
@@ -86,31 +97,41 @@ type (
 		Stripe  *ChannelStripe  `json:"stripe,omitempty"`
 	}
 	ChannelPaypal struct {
-		ClientId     string   `json:"client_id"      `
-		ClientSecret string   `json:"client_secret"  `
-		IsSandbox    bool     `json:"is_sandbox" `
-		Currencies   []string `json:"currencies"`
+		ClientId         string   `json:"client_id"      `
+		ClientSecret     string   `json:"client_secret"  `
+		IsSandbox        bool     `json:"is_sandbox" `
+		Currencies       []string `json:"currencies"`
+		TradingCountries []string `json:"trading_countries"`
+		InUse            bool     `json:"in_use"`
 	}
 	ChannelAlipay struct {
-		MchId      string `json:"mch_id"         `
-		AppId      string `json:"app_id"         `
-		PrivateKey string `json:"private_key"    `
-		PublicKey  string `json:"public_key"     `
-		IsSandbox  bool   `json:"is_sandbox" `
+		MchId            string   `json:"mch_id"         `
+		AppId            string   `json:"app_id"         `
+		PrivateKey       string   `json:"private_key"    `
+		PublicKey        string   `json:"public_key"     `
+		IsSandbox        bool     `json:"is_sandbox" `
+		TradingCountries []string `json:"trading_countries"`
+		InUse            bool     `json:"in_use"`
 	}
 	ChannelWechat struct {
-		MchId string `json:"mch_id"`
+		MchId            string   `json:"mch_id"`
+		TradingCountries []string `json:"trading_countries"`
+		InUse            bool     `json:"in_use"`
 	}
 	ChannelUseepay struct {
-		MerchantNo string   `json:"merchant_no"    `
-		AppId      string   `json:"app_id"         `
-		SignType   string   `json:"sign_type"      `
-		SecretKey  string   `json:"secret_key"     `
-		IsSandbox  bool     `json:"is_sandbox" `
-		Currencies []string `json:"currencies"`
+		MerchantNo       string   `json:"merchant_no"    `
+		AppId            string   `json:"app_id"         `
+		SignType         string   `json:"sign_type"      `
+		SecretKey        string   `json:"secret_key"     `
+		IsSandbox        bool     `json:"is_sandbox" `
+		Currencies       []string `json:"currencies"`
+		TradingCountries []string `json:"trading_countries"`
+		InUse            bool     `json:"in_use"`
 	}
 	ChannelStripe struct {
-		SecretKey  string   `json:"secret_key"`
-		Currencies []string `json:"currencies"`
+		SecretKey        string   `json:"secret_key"`
+		Currencies       []string `json:"currencies"`
+		TradingCountries []string `json:"trading_countries"`
+		InUse            bool     `json:"in_use"`
 	}
 )
