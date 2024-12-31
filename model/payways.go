@@ -44,6 +44,7 @@ type (
 		Alipay   *PayWayAlipay  `json:"alipay,omitempty"`
 		Useepay  *PayWayUseepay `json:"useepay,omitempty"`
 		Stripe   *PayWayStripe  `json:"stripe,omitempty"`
+		Onepay   *PayWayOnepay  `json:"onepay,omitempty"`
 	}
 	PayWayWechat struct {
 		SubMchID         string   `json:"sub_mch_id"`
@@ -74,6 +75,16 @@ type (
 	}
 	PayWayStripe struct {
 		SecretKey        string   `json:"secret_key"`
+		Currencies       []string `json:"currencies"`
+		TradingCountries []string `json:"trading_countries"`
+	}
+	PayWayOnepay struct {
+		AppID            string   `json:"app_id"`
+		MerchantSelfCode string   `json:"merchant_self_code"`
+		ShopSelfCode     string   `json:"shop_self_code"`
+		PrivateKey       string   `json:"private_key"`
+		PublicKey        string   `json:"public_key"`
+		GatewayUrl       string   `json:"gateway_url"`
 		Currencies       []string `json:"currencies"`
 		TradingCountries []string `json:"trading_countries"`
 	}
@@ -134,6 +145,18 @@ type (
 	}
 	ChannelStripe struct {
 		SecretKey        string   `json:"secret_key"`
+		Currencies       []string `json:"currencies"`
+		TradingCountries []string `json:"trading_countries"`
+		InUse            bool     `json:"in_use"`
+	}
+	ChannelOnePay struct {
+		ZpayMchId        string   `json:"zpay_mch_id"`
+		AppID            string   `json:"app_id"`
+		MerchantSelfCode string   `json:"merchant_self_code"`
+		ShopSelfCode     string   `json:"shop_self_code"`
+		PrivateKey       string   `json:"private_key"`
+		PublicKey        string   `json:"public_key"`
+		GatewayUrl       string   `json:"gateway_url"`
 		Currencies       []string `json:"currencies"`
 		TradingCountries []string `json:"trading_countries"`
 		InUse            bool     `json:"in_use"`
