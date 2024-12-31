@@ -84,6 +84,8 @@ type (
 		ShopSelfCode     string   `json:"shop_self_code"`
 		PrivateKey       string   `json:"private_key"`
 		PublicKey        string   `json:"public_key"`
+		PayType          string   `json:"pay_type"`
+		WalletCode       string   `json:"wallet_code"`
 		GatewayUrl       string   `json:"gateway_url"`
 		Currencies       []string `json:"currencies"`
 		TradingCountries []string `json:"trading_countries"`
@@ -157,6 +159,8 @@ type (
 		ShopSelfCode     string   `json:"shop_self_code"`
 		PrivateKey       string   `json:"private_key"`
 		PublicKey        string   `json:"public_key"`
+		PayType          string   `json:"pay_type"`
+		WalletCode       string   `json:"wallet_code"`
 		GatewayUrl       string   `json:"gateway_url"`
 		Currencies       []string `json:"currencies"`
 		TradingCountries []string `json:"trading_countries"`
