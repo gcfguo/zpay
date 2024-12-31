@@ -110,6 +110,7 @@ type (
 		Wechat  *ChannelWechat  `json:"wechat,omitempty"`
 		Useepay *ChannelUseepay `json:"useepay,omitempty"`
 		Stripe  *ChannelStripe  `json:"stripe,omitempty"`
+		Onepay  *ChannelOnePay  `json:"onepay,omitempty"`
 	}
 	ChannelPaypal struct {
 		ClientId         string   `json:"client_id"      `
