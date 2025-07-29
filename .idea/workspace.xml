@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="09c669c1-77e2-4963-a881-593533d8572b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/client_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/payways.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,16 +20,16 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://C:/Program Files/Go" />
+  <component name="GOROOT" url="file://C:/developer/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2WpHnPPbwqibsNI7Pmj5fwo5MYg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -45,10 +45,10 @@
     "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "v1.4.23",
+    "git-widget-placeholder": "ly__onepay",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "D:/workspace/golang/src/ZpaySDK/zpay",
+    "last_opened_file_path": "D:/gopath/src/zpay_model/zpay/model",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -56,12 +56,15 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\gopath\src\zpay_model\zpay\model" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\workspace\golang\src\ZpaySDK\zpay\util" />
       <recent name="D:\workspace\golang\src\ZpaySDK\zpay\biz" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestClient_AddPayWay in github.com/gcfguo/zpay">
+  <component name="RunManager" selected="Go 测试.TestClient_AddPayWay in github.com/gcfguo/zpay">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="zpay" />
       <working_directory value="$PROJECT_DIR$" />
@@ -136,15 +139,6 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Go Test.TestClient_AddPayWay in github.com/gcfguo/zpay" />
-        <item itemvalue="Go Test.TestClient_ShowPaymentChannel in github.com/gcfguo/zpay (1)" />
-        <item itemvalue="Go Test.TestClient_ShowPaymentChannel in github.com/gcfguo/zpay" />
-        <item itemvalue="Go Test.TestClient_Login in github.com/gcfguo/zpay" />
-        <item itemvalue="Go Test.TestClient_Register in github.com/gcfguo/zpay" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
