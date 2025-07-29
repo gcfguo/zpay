@@ -35,17 +35,17 @@ type (
 
 type (
 	AddPayWayReq struct {
-		Name     string          `json:"name"`
-		Email    string          `json:"email"`
-		Phone    string          `json:"phone"`
-		Password string          `json:"password"`
-		Wechat   *PayWayWechat   `json:"wechat,omitempty"`
-		Paypal   *PayWayPaypal   `json:"paypal,omitempty"`
-		Alipay   *PayWayAlipay   `json:"alipay,omitempty"`
-		Useepay  *PayWayUseepay  `json:"useepay,omitempty"`
-		Stripe   *PayWayStripe   `json:"stripe,omitempty"`
-		Onepay   *PayWayOnepay   `json:"onepay,omitempty"`
-		Worldpay *PayWayWorldpay `json:"worldpay,omitempty"`
+		Name       string          `json:"name"`
+		Email      string          `json:"email"`
+		Phone      string          `json:"phone"`
+		Password   string          `json:"password"`
+		Wechat     *PayWayWechat   `json:"wechat,omitempty"`
+		Paypal     *PayWayPaypal   `json:"paypal,omitempty"`
+		Alipay     *PayWayAlipay   `json:"alipay,omitempty"`
+		Useepay    *PayWayUseepay  `json:"useepay,omitempty"`
+		Stripe     *PayWayStripe   `json:"stripe,omitempty"`
+		Onepay     *PayWayOnepay   `json:"onepay,omitempty"`
+		Worldfirst *PayWayWorldpay `json:"worldfirst,omitempty"`
 	}
 	PayWayWechat struct {
 		SubMchID         string   `json:"sub_mch_id"`
@@ -115,12 +115,20 @@ type (
 
 type (
 	ShowPaymentChannelRes struct {
-		Paypal  *ChannelPaypal  `json:"paypal,omitempty"`
-		Alipay  *ChannelAlipay  `json:"alipay,omitempty"`
-		Wechat  *ChannelWechat  `json:"wechat,omitempty"`
-		Useepay *ChannelUseepay `json:"useepay,omitempty"`
-		Stripe  *ChannelStripe  `json:"stripe,omitempty"`
-		Onepay  *ChannelOnePay  `json:"onepay,omitempty"`
+		Paypal     *ChannelPaypal     `json:"paypal,omitempty"`
+		Alipay     *ChannelAlipay     `json:"alipay,omitempty"`
+		Wechat     *ChannelWechat     `json:"wechat,omitempty"`
+		Useepay    *ChannelUseepay    `json:"useepay,omitempty"`
+		Stripe     *ChannelStripe     `json:"stripe,omitempty"`
+		Onepay     *ChannelOnePay     `json:"onepay,omitempty"`
+		Worldfirst *ChannelWorldfirst `json:"worldfirst,omitempty"`
+	}
+	ChannelWorldfirst struct {
+		ClientID   string `json:"client_id"`
+		CustomerId string `json:"customer_id"`
+		PrivateKey string `json:"private_key"`
+		PublicKey  string `json:"public_key"`
+		IsSandBox  bool   `json:"is_sand_box"`
 	}
 	ChannelPaypal struct {
 		ClientId         string   `json:"client_id"      `
