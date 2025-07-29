@@ -35,16 +35,17 @@ type (
 
 type (
 	AddPayWayReq struct {
-		Name     string         `json:"name"`
-		Email    string         `json:"email"`
-		Phone    string         `json:"phone"`
-		Password string         `json:"password"`
-		Wechat   *PayWayWechat  `json:"wechat,omitempty"`
-		Paypal   *PayWayPaypal  `json:"paypal,omitempty"`
-		Alipay   *PayWayAlipay  `json:"alipay,omitempty"`
-		Useepay  *PayWayUseepay `json:"useepay,omitempty"`
-		Stripe   *PayWayStripe  `json:"stripe,omitempty"`
-		Onepay   *PayWayOnepay  `json:"onepay,omitempty"`
+		Name     string          `json:"name"`
+		Email    string          `json:"email"`
+		Phone    string          `json:"phone"`
+		Password string          `json:"password"`
+		Wechat   *PayWayWechat   `json:"wechat,omitempty"`
+		Paypal   *PayWayPaypal   `json:"paypal,omitempty"`
+		Alipay   *PayWayAlipay   `json:"alipay,omitempty"`
+		Useepay  *PayWayUseepay  `json:"useepay,omitempty"`
+		Stripe   *PayWayStripe   `json:"stripe,omitempty"`
+		Onepay   *PayWayOnepay   `json:"onepay,omitempty"`
+		Worldpay *PayWayWorldpay `json:"worldpay,omitempty"`
 	}
 	PayWayWechat struct {
 		SubMchID         string   `json:"sub_mch_id"`
@@ -89,6 +90,13 @@ type (
 		GatewayUrl       string   `json:"gateway_url"`
 		Currencies       []string `json:"currencies"`
 		TradingCountries []string `json:"trading_countries"`
+	}
+	PayWayWorldpay struct {
+		ClientID   string `json:"client_id"`
+		CustomerId string `json:"customer_id"`
+		PrivateKey string `json:"private_key"`
+		PublicKey  string `json:"public_key"`
+		IsSandBox  bool   `json:"is_sand_box"`
 	}
 	AddPayWayRes struct {
 		ZPayMchID uint64 `json:"zpay_mch_id"`
